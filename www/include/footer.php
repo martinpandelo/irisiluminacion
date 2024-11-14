@@ -50,7 +50,7 @@
                 <div class="col-12 col-lg-10 align-self-center">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-12 text-center">
-                            <img src="<?php echo constant('URL') ?>img/iris-logo-sobre-blanco.png" class="logo-footer py-4" alt="Iris Iluminación">
+                            <img src="<?php echo constant('URL') ?>img/iris-factory-logo-oscuro.svg" class="logo-footer py-4" alt="Iris Iluminación">
                             <p class="m-0">© <?php echo date("Y") ?> Iris Iluminación - Diseño y Desarrollo <a href="https://www.jaquecomunicacion.com.ar" target="_blank" class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Jaque Comunicación</a></p>
                         </div>
                     </div>

@@ -56,7 +56,7 @@
                     <div class="col-12 col-lg-10 align-self-center">
                         <div class="d-flex align-items-center align-items-lg-end">
                             <div class="logo ">
-                                <a href="<?php echo constant('URL') ?>"><img src="<?php echo constant('URL') ?>img/iris-factory.svg" alt="Iris iluminación"></a>
+                                <a href="<?php echo constant('URL') ?>"><img src="<?php echo constant('URL') ?>img/iris-factory-logo.svg" alt="Iris iluminación"></a>
                             </div>
                             <div class="header-nav mx-auto">
                                 <nav>
