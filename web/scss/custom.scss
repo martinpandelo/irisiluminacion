@@ -192,10 +192,10 @@ header {
     }
     .logo {
         img {
-            max-width: 140px;
+            max-width: 110px;
             width: 100%;
             @include media-breakpoint-down(md) {
-                max-width: 120px;
+                max-width: 100px;
             }
         }
     }
@@ -999,7 +999,7 @@ footer {
 }
 
 .logo-footer {
-    max-width: 220px;
+    max-width: 160px;
 }
 
 .wrap-breadcrumb {
