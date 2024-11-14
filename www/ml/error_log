@@ -1,0 +1,6 @@
+[28-Sep-2023 19:10:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'pr_codigo' cannot be null in /home/fulmkodp/public_html/class/sincroml.class.php:264
+Stack trace:
+#0 /home/fulmkodp/public_html/class/sincroml.class.php(264): PDOStatement->execute()
+#1 /home/fulmkodp/public_html/ml/proceso-notificaciones.php(127): sincroML->CargarVariaciones('186', NULL, '2064', '-', '7', '-', NULL)
+#2 {main}
+  thrown in /home/fulmkodp/public_html/class/sincroml.class.php on line 264

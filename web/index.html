@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <title>Iris Iluminación</title>
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" media="all" href="css/custom.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+    <a href="#" id="js_up" class="boton-subir text-center"><i class="bi bi-arrow-up fa-2x"></i></a>
+
+    <!-- Modal Search -->
+    <div class="modal fade" id="modalSearch" tabindex="-1" aria-labelledby="modalSearchLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body py-4">
+                    <form action="" method="GET" name="buscForm" id="buscForm">
+                        <div class="input-group">
+                            <input class="form-control" type="search" name="buscar" id="buscarInput" placeholder="Buscar por código o palabra clave" aria-label="Search" aria-describedby="basic-addon2">
+                            <button class="btn btn-buscar" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="top-bar bg-primary d-none d-sm-block">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="col text-center p-0">
+                            <div class="nav-top-bar">
+                                <a href="tel:+5492804340066" target="_blank" class="pe-3"><i class="bi bi-truck px-1"></i> Entregas a todo el país</a>
+                                <a href="tel:+5492804340066" target="_blank" class="pe-3"><i class="bi bi-telephone px-1"></i> Atención al cliente: (011) 4290-4373</a>
+                                <a href="https://www.instagram.com/lautrec.iluminacion/" target="_blank" class="px-1"><i class="bi bi-instagram px-1"></i></a>
+                                <a href="https://es-la.facebook.com/lautreciluminacion/" target="_blank" class="px-1"><i class="bi bi-facebook px-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation">
+        <header>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 align-self-center">
+                        <div class="d-flex align-items-center align-items-lg-end">
+                            <div class="logo ">
+                                <a href="#"><img src="img/iris-logo-new.png" alt="Iris iluminación"></a>
+                            </div>
+                            <div class="header-nav mx-auto">
+                                <nav>
+                                    <ul class="primary-nav">
+                                        <li><a href="#top">Inicio</a></li>
+                                        <li><a href="#productos">Productos</a></li>
+                                        <li><a href="#catalogo">Nosotros</a></li>
+                                        <li><a href="#nosotros">Formas de pago</a></li>
+                                        <li><a href="#contacto">Contacto</a></li>
+                                        <li class="nav-item d-block d-sm-none">
+                                            <div class="social-media mt-4">
+                                                <a href="https://www.instagram.com/complaq_" target="_blank" class="mb-2 mr-4"><i class="bi bi-instagram"></i></a>
+                                                <a href="https://www.facebook.com/COMPLAQSRL" target="_blank" class="mb-2"><i class="bi bi-facebook ps-3"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="ms-5">
+                                <div class="icons">
+                                    <ul class="list-inline m-0">
+                                        <li class="list-inline-item"><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#modalSearch" class="show-search"><i class="bi bi-search"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" data-bs-toggle="modal" data-target="#pop_cart" id="icon_cart"><i class="bi bi-cart2"></i><span>0</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="navicon">
+                                <a class="nav-toggle" href="#"><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+
+    <div id="homeCarousel" class="carousel slide carouselHome caption-animate" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target=".homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target=".homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target=".homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <picture>
+                    <source srcset="img/slide/slide.jpg" media="(min-width: 600px)">
+                    <img src="img/slide/slide_mobile.jpg" class="bd-placeholder-img" width="100%" height="100%">
+                </picture>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section id="categorias" class="padding-section-top">
+        <div class="container-fluid py-5">
+            <div class="row text-center">
+                <div class="col">
+                    <h2 class="main-title px-5">Categorías</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row">
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Colgantes</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Plafones y Difusores</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Apliques y Spots</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Lámparas de mesa</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Colgantes</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Plafones y Difusores</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Apliques y Spots</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="grid">
+                                <figure class="effect-honey">
+                                    <img src="img/categorias/colgantes.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Lámparas de mesa</h2>
+                                        <a href="">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="productos padding-section-top">
+        <div class="container-fluid py-5">
+            <div class="row text-center">
+                <div class="col">
+                    <h2 class="main-title px-5">Novedades</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row product-grid">
+                        <div id="car-novedades" class="owl-carousel owl-theme">
+                            <div class="wrap-card">
+                                <div class="card">
+                                    <figure class="effect-steve">
+                                        <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <a href="producto/" class="main-link">ver</a>
+                                    </figure>
+                                    <div class="card-body info-producto border-top border-2 border-primary">
+                                        <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                        <div class="price d-lg-flex justify-content-center align-items-center">
+                                            <div>
+                                                <p>$38.957,40</p>
+                                            </div>
+                                            <div>
+                                                <p><del><small>$43.286,00</small></del></p>
+                                            </div>
+                                        </div>
+                                        <div class="py-1">
+                                            <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                        </div>
+                                        <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card">
+                                <div class="card">
+                                    <figure class="effect-steve">
+                                        <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <a href="producto/" class="main-link">ver</a>
+                                    </figure>
+                                    <div class="card-body info-producto border-top border-2 border-primary">
+                                        <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                        <div class="price d-lg-flex justify-content-center align-items-center">
+                                            <div>
+                                                <p>$38.957,40</p>
+                                            </div>
+                                            <div>
+                                                <p><del><small>$43.286,00</small></del></p>
+                                            </div>
+                                        </div>
+                                        <div class="py-1">
+                                            <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                        </div>
+                                        <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card">
+                                <div class="card">
+                                    <figure class="effect-steve">
+                                        <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <a href="producto/" class="main-link">ver</a>
+                                    </figure>
+                                    <div class="card-body info-producto border-top border-2 border-primary">
+                                        <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                        <div class="price d-lg-flex justify-content-center align-items-center">
+                                            <div>
+                                                <p>$38.957,40</p>
+                                            </div>
+                                            <div>
+                                                <p><del><small>$43.286,00</small></del></p>
+                                            </div>
+                                        </div>
+                                        <div class="py-1">
+                                            <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                        </div>
+                                        <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card">
+                                <div class="card">
+                                    <figure class="effect-steve">
+                                        <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <a href="producto/" class="main-link">ver</a>
+                                    </figure>
+                                    <div class="card-body info-producto border-top border-2 border-primary">
+                                        <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                        <div class="price d-lg-flex justify-content-center align-items-center">
+                                            <div>
+                                                <p>$38.957,40</p>
+                                            </div>
+                                            <div>
+                                                <p><del><small>$43.286,00</small></del></p>
+                                            </div>
+                                        </div>
+                                        <div class="py-1">
+                                            <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                        </div>
+                                        <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card">
+                                <div class="card">
+                                    <figure class="effect-steve">
+                                        <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                        <i class="bi bi-plus-lg"></i>
+                                        <a href="producto/" class="main-link">ver</a>
+                                    </figure>
+                                    <div class="card-body info-producto border-top border-2 border-primary">
+                                        <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                        <div class="price d-lg-flex justify-content-center align-items-center">
+                                            <div>
+                                                <p>$38.957,40</p>
+                                            </div>
+                                            <div>
+                                                <p><del><small>$43.286,00</small></del></p>
+                                            </div>
+                                        </div>
+                                        <div class="py-1">
+                                            <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                        </div>
+                                        <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="productos padding-section">
+        <div class="container-fluid py-5">
+            <div class="row text-center">
+                <div class="col">
+                    <h2 class="main-title px-5">Los preferidos <i class="bi bi-heart"></i></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row product-grid">
+
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 wrap-card">
+                            <div class="card">
+                                <figure class="effect-steve">
+                                    <img src="img/productos/iris.jpg" class="card-img-top" alt="">
+                                    <i class="bi bi-plus-lg"></i>
+                                    <a href="producto/" class="main-link">ver</a>
+                                </figure>
+                                <div class="card-body info-producto border-top border-2 border-primary">
+                                    <h4 class="card-title"><a href="producto/">Aplique Valle</a></h4>
+                                    <div class="price d-lg-flex justify-content-center align-items-center">
+                                        <div>
+                                            <p>$38.957,40</p>
+                                        </div>
+                                        <div>
+                                            <p><del><small>$43.286,00</small></del></p>
+                                        </div>
+                                    </div>
+                                    <div class="py-1">
+                                        <p class="m-0"><a href="producto/"><small class="d-inline-block text-primary m-0"><span class="fw-bold">3</span> cuotas sin interés de <span class="fw-bold">$12.986</span></small></a></p>
+                                    </div>
+                                    <a href="producto/" class="btn btn-primary btn-comprar px-lg-5">Comprar <i class="bi bi-cart2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid px-5">
+            <div class="row text-center">
+                <div class="col">
+                    <a href="#" class="btn btn-primary btn-custom btn-lg text-white my-5">Ver todos los productos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light padding-section info-compra">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row justify-content-center align-items-center py-3">
+                        <div class="col-12 col-xl-4 py-3 py-lg-0 text-center text-lg-start">
+                            <div class="d-lg-flex justify-content-center align-items-center">
+                                <div class="py-2"><i class="bi bi-truck bi-3x text-primary pe-lg-4"></i></div>
+                                <div>
+                                    <a href="#">
+                                        <h4>Formas de envío</h4>
+                                        <p>Hacemos envíos a todo el país</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-4 py-3 py-lg-0 text-center text-lg-start">
+                            <div class="d-lg-flex justify-content-center align-items-center">
+                                <div class="py-2"><i class="bi bi-credit-card bi-3x text-primary pe-lg-4"></i></div>
+                                <div>
+                                    <a href="#">
+                                        <h4>Formas de pago</h4>
+                                        <p>Efectivo, Transferencia,<br>tarjetas de crédito y débito</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-4 py-3 py-lg-0 text-center text-lg-start">
+                            <div class="d-lg-flex justify-content-center align-items-center">
+                                <div class="py-2"><i class="bi bi-question-circle bi-3x text-primary pe-lg-4"></i></div>
+                                <div>
+                                    <a href="#">
+                                        <h4>FAQs</h4>
+                                        <p>¡No te quedes con dudas!<br> Mirá las preguntas frecuentes</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6 p-4 p-lg-0">
+                    <div class="d-flex justify-content-center">
+                        <div class="info-contacto mt-2">
+                            <div class="text-center text-lg-start">
+                                <h2 class="main-title px-5">Contacto</h2>
+                            </div>
+                            <div class="d-flex align-items-center pb-2 pt-5"><i class="bi bi-geo-alt pe-3"></i><a href="#" class="text-decoration-none py-1" target="_blank">Blvr. Buenos Aires 1520, Luis Guillón</a></div>
+                            <div class="d-flex align-items-center py-2"><i class="bi bi-telephone pe-3"></i><a href="#" class="text-decoration-none py-1" target="_blank">(011) 4290-4373</a></div>
+                            <div class="d-flex align-items-center py-2"><i class="bi bi-whatsapp pe-3"></i><a href="#" class="text-decoration-none py-1" target="_blank">15 4438-8173</a></div>
+                            <div class="d-flex align-items-center py-2"><i class="bi bi-envelope pe-3"></i><a href="#" class="text-decoration-none py-1" target="_blank">irisguillon@gmail.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 p-0">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.8702133985903!2d-58.44968028812876!3d-34.80920697276818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd3c43e27bf85%3A0x2eaee5857d271d31!2sIris%20Iluminaci%C3%B3n!5e0!3m2!1ses!2sar!4v1690398273316!5m2!1ses!2sar"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary">
+        <div class="container-xxl">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row justify-content-center align-items-center py-5">
+                        <div class="col-12 col-xl-3 py-4 py-lg-0 text-center text-lg-start">
+                            <ul class="list-unstyled footer-menu">
+                                <li><a href="#top">Inicio</a></li>
+                                <li><a href="#productos">Productos</a></li>
+                                <li><a href="#nosotros">Nosotros</a></li>
+                                <li><a href="#">Formas de pago</a></li>
+                                <li><a href="#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-xl-4 redes py-4 py-lg-0 text-center text-lg-start">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="https://www.instagram.com/complaq_" target="_blank" class="mb-2 mr-4"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://www.facebook.com/COMPLAQSRL" target="_blank" class="mb-2"><i class="bi bi-facebook ps-3"></i></a>
+                                </li>
+                                <li>
+                                    <p>Encontranos en las redes sociales</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-xl-5 py-4 py-lg-0">
+                            <img src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago" class="banner-mp" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section class="border-top border-primary">
+        <div class="container-fluid py-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-12 text-center">
+                            <img src="img/iris-logo-sobre-blanco.png" class="logo-footer py-4" alt="Iris Iluminación">
+                            <p class="m-0">© 2023 Iris Iluminación - Diseño y Desarrollo <a href="http://www.jaquecomunicacion.com.ar" target="_blank" class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Jaque Comunicación</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5491126606524" target="_blank" class="button-whatsapp">WhatsApp <i class="bi bi-whatsapp"></i></a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#car-novedades').owlCarousel({
+                loop: false,
+                margin: 0,
+                nav: true,
+                dots: true,
+                navSpeed: 1000,
+                navText: ["<i class='bi bi-chevron-left'></i>", "<i class='bi bi-chevron-right'></i>"],
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true
+                    }
+                }
+            })
+
+        }); // Fin document ready
+    </script>
+
+</body>
+
+</html>

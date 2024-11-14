@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www.irisiluminacion.ar [NC]
+RewriteRule ^(.*)$ https://irisiluminacion.ar/$1 [L,R=301]
+
+RewriteRule ^producto/(.+)-(.+)$ ficha.php?id=$1 [L]
+	
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php

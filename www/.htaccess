@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteRule ^productos/(.+)$ productos.php?cat=$1 [L]
+RewriteRule ^productos/$ productos.php [L]
+
+RewriteRule ^producto/(.+)-(.+)$ ficha.php?id=$1 [L]
+	
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{HTTP_HOST} ^irisiluminacion\.ar$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.irisiluminacion\.ar$
+RewriteRule ^/?$ "https\:\/\/irisiluminacion\.com\.ar\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^iris\.iluminacion\.com\.ar$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.iris\.iluminacion\.com\.ar$
+RewriteRule ^/?$ "https\:\/\/irisiluminacion\.com\.ar\/" [R=301,L]
