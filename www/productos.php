@@ -11,6 +11,9 @@ if(isset($subcatActiva)) $datCat=$Obj->getSubCategoriaActiva($subcatActiva);
 if(isset($_REQUEST['cybersale']))
     $cybersale=filter_input(INPUT_GET,'cybersale', FILTER_SANITIZE_SPECIAL_CHARS);
 
+if(isset($_REQUEST['factorysale']))
+    $factorysale=filter_input(INPUT_GET,'factorysale', FILTER_SANITIZE_SPECIAL_CHARS);
+
 
 $urlProductos = explode('?buscar=', $_SERVER["REQUEST_URI"]);
 

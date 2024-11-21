@@ -848,6 +848,19 @@ Categorias Home
                     font-size: 1rem;
                     line-height: 1;
                 }
+                &.factorysale:before {
+                    position: absolute;
+                    right: 0;
+                    top: 15px;
+                    z-index: 1;
+                    content: 'FACTORY SALE';
+                    color: white;
+                    background-color: #ff5d26;
+                    padding: 6px 12px;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    line-height: 1;
+                }
                 &.effect-steve {
                     z-index: 1;
                     background-color: $white;
