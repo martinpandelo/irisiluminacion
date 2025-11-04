@@ -135,7 +135,7 @@ class sincroML {
 
         unset($this->arrNot);
 
-        $sql = "SELECT DISTINCT(nt_item) FROM `tbl_notificaciones` WHERE `nt_estado`='pendiente' AND `nt_item` NOT LIKE '%prices%'";
+        $sql = "SELECT DISTINCT(nt_item) FROM `tbl_notificaciones` WHERE `nt_estado`='pendiente' AND `nt_item` NOT LIKE '%prices%' LIMIT 50";
         $query = $this->conn->prepare($sql);
         $query->execute();
 
@@ -147,6 +147,15 @@ class sincroML {
             return $this->arrNot;
         } 
     }
+
+
+    public function ActualizarEstado($idProd,$estado){
+        $sql = $this->conn->prepare("UPDATE `tbl_productos` SET `status`=? WHERE pd_id=?");
+        $sql->bindParam(1, $estado);    
+        $sql->bindParam(2, $idProd);
+        return $sql->execute();
+    }
+
 
 
 	public function ActualizarTodosProductos() {
@@ -191,32 +200,57 @@ class sincroML {
 		} 
 	}
 
-	public function CargarItems($idMLA,$thumbnail,$title,$description,$caracteristicas,$marca,$categoria,$subcategoria,$disponibilidad,$estado) {
+	public function CargarItems(
+        
+        $idMLA,
+        $thumbnail,
+        $title,
+        $description,
+        $caracteristicas,
+        $marca,
+        $modelo, 
+        $sku,
+        $categoria,
+        $subcategoria,
+        $disponibilidad,
+        $estado) {
 
-        $sql = $this->conn->prepare("INSERT INTO `tbl_productos` (`pd_codigo_mla`, `pd_thumbnail`, `pd_titulo`, `pd_descripcion`, `pd_caracteristicas`, `pd_marca`, `pd_categoria`, `pd_subcategoria`, `pd_disponibilidad`, `pd_etiqueta`, `pd_destacado`, `pd_orden_dest`, `status`, `pd_orden`) VALUES (?,?,?,?,?,?,?,?,?,'normal','no',0,?,0)");
+        $sql = $this->conn->prepare("INSERT INTO `tbl_productos` (`pd_codigo_mla`, `pd_thumbnail`, `pd_titulo`, `pd_descripcion`, `pd_caracteristicas`, `pd_marca`, `pd_modelo`, `pd_sku`, `pd_categoria`, `pd_subcategoria`, `pd_disponibilidad`, `pd_etiqueta`, `pd_destacado`, `pd_orden_dest`, `status`, `pd_orden`) VALUES (?,?,?,?,?,?,?,?,?,?,?,'normal','no',0,?,0)");
 		$sql->bindParam(1, $idMLA);
 		$sql->bindParam(2, $thumbnail);
 		$sql->bindParam(3, $title);
         $sql->bindParam(4, $description);
         $sql->bindParam(5, $caracteristicas);
         $sql->bindParam(6, $marca);
-        $sql->bindParam(7, $categoria);
-        $sql->bindParam(8, $subcategoria);
-        $sql->bindParam(9, $disponibilidad);
-        $sql->bindParam(10, $estado);
+        $sql->bindParam(7, $modelo);
+        $sql->bindParam(8, $sku);
+        $sql->bindParam(9, $categoria);
+        $sql->bindParam(10, $subcategoria);
+        $sql->bindParam(11, $disponibilidad);
+        $sql->bindParam(12, $estado);
 		return $sql->execute();
 	}
 
-	public function ActualizarItems($idProd,$thumbnail,$description,$caracteristicas,$marca,$disponibilidad,$estado) {
+	public function ActualizarItems($idProd,
+                                    $thumbnail,
+                                    $description,
+                                    $caracteristicas,
+                                    $marca,
+                                    $modelo,
+                                    $sku,
+                                    $disponibilidad,
+                                    $estado) {
 
-        $sql = $this->conn->prepare("UPDATE `tbl_productos` SET `pd_thumbnail`=?,`pd_descripcion`=?,`pd_caracteristicas`=?,`pd_marca`=?,`pd_disponibilidad`=?,`status`=? WHERE pd_id=?");
+        $sql = $this->conn->prepare("UPDATE `tbl_productos` SET `pd_thumbnail`=?,`pd_descripcion`=?,`pd_caracteristicas`=?,`pd_marca`=?,`pd_modelo`=?, pd_sku=?,  `pd_disponibilidad`=?,`status`=? WHERE pd_id=?");
 		$sql->bindParam(1, $thumbnail);
 		$sql->bindParam(2, $description);
         $sql->bindParam(3, $caracteristicas);
         $sql->bindParam(4, $marca);
-        $sql->bindParam(5, $disponibilidad);
-        $sql->bindParam(6, $estado);
-        $sql->bindParam(7, $idProd);
+        $sql->bindParam(5, $modelo);
+        $sql->bindParam(6, $sku);
+        $sql->bindParam(7, $disponibilidad);
+        $sql->bindParam(8, $estado);
+        $sql->bindParam(9, $idProd);
 		return $sql->execute();
 	}
 
@@ -250,6 +284,35 @@ class sincroML {
 				return $sql->execute();
             } 
 		}
+	}
+
+
+    public function eliminarNotificaciones($params=null) {
+		
+		
+		
+		$sql = "DELETE FROM `tbl_notificaciones` 
+		WHERE 1=1  ";
+	
+		
+		
+		if($params['status_estado']){
+			$status_estado = $params['status_estado'];
+			$sql .= " AND nt_estado=?  ";
+		}
+
+		if($params['time_limit']){
+			$time_limit = $params['time_limit'];
+			$sql .= " AND nt_fecha < DATE_SUB(NOW(), INTERVAL ? SECOND)";
+		}
+
+          $i=1;  
+	      $query = $this->conn->prepare($sql);
+	      if(isset($status_estado)){ $query->bindParam($i, $status_estado); $i++;}
+          if(isset($time_limit)){ $query->bindParam($i, $time_limit); $i++;}
+          return $query->execute();
+			
+
 	}
 
 	public function CargarVariaciones($idProd,$codigo,$price,$variacion,$stock,$foto,$sku) {

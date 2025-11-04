@@ -488,27 +488,46 @@ class Productos extends Conexion
 	{
 		$this->categoria=$cat;
 
-		$query="SELECT pd_id, pd_codigo_mla, pd_thumbnail, pd_titulo, pd_marca, ct_titulo, ct_mla, pd_etiqueta, pd_destacado, pd_new, pd_descuento, pd_descuento_especial, pd_categoria_envio, pd_bulto_envio, status, pd_orden FROM  `tbl_productos`
-		LEFT JOIN tbl_categorias ON tbl_productos.pd_categoria=tbl_categorias.ct_mla
-		LEFT JOIN tbl_subcategorias ON tbl_subcategorias.sct_mla=tbl_productos.pd_subcategoria";
+		$query="SELECT pd_id, 
+						pd_codigo_mla, 
+						pd_thumbnail, 
+						pd_titulo, 
+						pd_marca, 
+						pd_modelo,
+						pd_sku,
+						ct_titulo, 
+						ct_mla, 
+						pd_etiqueta, 
+						pd_destacado, 
+						pd_new, 
+						pd_descuento, 
+						pd_descuento_especial, 
+						pd_categoria_envio, 
+						pd_bulto_envio, 
+						status, 
+						pd_orden 
+						
+				FROM  `tbl_productos`
+				LEFT JOIN tbl_categorias ON tbl_productos.pd_categoria=tbl_categorias.ct_mla
+				LEFT JOIN tbl_subcategorias ON tbl_subcategorias.sct_mla=tbl_productos.pd_subcategoria";
 
-		if (!empty($this->categoria)) {
-			$query.=" WHERE pd_categoria='$this->categoria'";
-		}
-
-		$query.=" ORDER BY pd_id DESC";
-
-		$result=mysqli_query(parent::con(),"$query");
-
-			while ($row=$result->fetch_assoc())
-			{
-				if (empty($row['pd_thumbnail'])) {
-					$row['pd_thumbnail']='../img/sin-imagen.jpg';
+				if (!empty($this->categoria)) {
+					$query.=" WHERE pd_categoria='$this->categoria'";
 				}
-				$output[] = $row;
-			}
+
+				$query.=" ORDER BY pd_id DESC";
+
+				$result=mysqli_query(parent::con(),"$query");
+
+				while ($row=$result->fetch_assoc())
+				{
+					if (empty($row['pd_thumbnail'])) {
+						$row['pd_thumbnail']='../img/sin-imagen.jpg';
+					}
+					$output[] = $row;
+				}
 	
-		echo json_encode($output);
+				echo json_encode($output);
 	}
 
 	public function editar($nombre,$value,$pk)
@@ -769,7 +788,13 @@ class Productos extends Conexion
 			if ($row_cnt>0) {
 				while($row=$result->fetch_assoc()) {
 					$item='/items/'.$row['pd_codigo_mla'];
-					mysqli_query(parent::con(),"INSERT INTO `tbl_notificaciones`(`nt_item`) VALUES ('$item')");
+					$nt_mla = $row['pd_codigo_mla'];
+					$nt_fecha = date('Y-m-d H:i:s');
+					$nt_estado = 'pendiente';
+					mysqli_query(parent::con(),"INSERT INTO `tbl_notificaciones`
+							(`nt_item`, `nt_mla`, `nt_estado`, `nt_fecha`) 
+								VALUES 
+							('$item','$nt_mla','$nt_estado','$nt_fecha')");
 				}
 				return true;
 			} else {

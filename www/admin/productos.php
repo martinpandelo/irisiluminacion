@@ -126,8 +126,10 @@ $ObjConfig=new Configuracion;
                                                    <th></th>
                                                    <th>#ML</th>
                                                    <th>Título</th>
+                                                   <th>SKU</th>
                                                    <th>Categoria</th>
                                                    <th>Marca</th>
+                                                   <th>Modelo</th>
                                                    <th>Status</th>
                                                    <th>Destacado</th>
                                                    <th>Nuevo</th>
@@ -144,8 +146,10 @@ $ObjConfig=new Configuracion;
                                                    <th></th>
                                                    <th>#ML</th>
                                                    <th>Título</th>
+                                                   <th>SKU</th>
                                                    <th>Categoria</th>
                                                    <th>Marca</th>
+                                                   <th>Modelo</th>
                                                    <th>Status</th>
                                                    <th>Destacado</th>
                                                    <th>Nuevo</th>
@@ -228,14 +232,17 @@ $ObjConfig=new Configuracion;
                             }
                              
                              html_data += '<td><a href="#" id="pd_titulo" data-type="textarea" data-pk="'+response[i].pd_id+'" data-value="'+response[i].pd_titulo+'" data-title="Título" class="editable editable-click">'+response[i].pd_titulo+'</a></td>';
+                             html_data += '<td>'+response[i].pd_sku+'</td>';
 
                              html_data += '<td><a href="#" id="pd_categoria" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].ct_mla+'" data-title="Categoría" class="editable editable-click">'+response[i].ct_titulo+'</a></td>';
                              html_data += '<td>'+response[i].pd_marca+'</td>';
+                             html_data += '<td>'+response[i].pd_modelo+'</td>';
                              if (response[i].status=='pausado') {
                                 html_data += '<td><a href="#" id="status" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].status+'" data-title="Estado" class="editable editable-click btn btn-danger">'+response[i].status+'</a></td>';
                             } else {
                                 html_data += '<td><a href="#" id="status" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].status+'" data-title="Estado" class="editable editable-click btn btn-success">'+response[i].status+'</a></td>';
                             }
+                                
                              html_data += '<td><a href="#" id="pd_destacado" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].pd_destacado+'" data-title="Destacado" class="editable editable-click">'+response[i].pd_destacado+'</a></td>';
                              html_data += '<td><a href="#" id="pd_new" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].pd_new+'" data-title="¿Es nuevo?" class="editable editable-click">'+response[i].pd_new+'</a></td>';
                              html_data += '<td><a href="#" id="pd_descuento" data-type="select" data-pk="'+response[i].pd_id+'" data-value="'+response[i].pd_descuento+'" data-title="Aplica descuento general" class="editable editable-click">'+response[i].pd_descuento+'</a></td>';
@@ -289,7 +296,8 @@ $ObjConfig=new Configuracion;
                             {value: 'normal', text: 'normal'},
                             {value: 'oferta', text: 'oferta'},
                             {value: 'novedad', text: 'novedad'},
-                            {value: 'fabrica', text: 'fabrica'}
+                            {value: 'fabrica', text: 'fabrica'},
+                            {value: 'cybersale', text: 'cybersale'}
                         ],
                         dataType: 'json',
                         success: function(response)  

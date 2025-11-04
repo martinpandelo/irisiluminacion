@@ -635,20 +635,27 @@ class mainClass {
 
 		if($action == 'ajax'){
 
-
-            $this->pd_etiqueta = strip_tags($_REQUEST['pd_etiqueta'], ENT_QUOTES);
-
-			$this->busqueda = strip_tags($_REQUEST['query'], ENT_QUOTES);
-
-			$this->cat = strip_tags($_REQUEST['cat'], ENT_QUOTES);
-
-			$this->subcat = strip_tags($_REQUEST['subcat'], ENT_QUOTES);
-
-			$this->orden = strip_tags($_REQUEST['orden'], ENT_QUOTES);
+            $this->busqueda = "";
+            $this->subcat = "";
+            $this->cat = "";
+            $this->orden = "";
+            $this->pd_etiqueta = "";
 
 
+            if(isset($_REQUEST['pd_etiqueta'])) $this->pd_etiqueta = strip_tags($_REQUEST['pd_etiqueta'], ENT_QUOTES);
 
-			$sql="SELECT DISTINCT(pd_id), pd_titulo, pd_etiqueta, pd_descuento, pd_descuento_especial, pd_orden, ct_orden, IF(pd_destacado='si', pd_orden_dest, 2000) AS orden, IF(pd_new='si', pd_orden_new, 2000) AS ordennew , IF(pd_etiqueta='novedad', 0, pd_orden) AS ordennovedad, IF(pd_etiqueta='oferta', pd_orden_oferta, 2000) AS ordenoferta FROM `tbl_productos`
+			//$this->busqueda = strip_tags($_REQUEST['query'], ENT_QUOTES);
+            if(isset($_REQUEST['query'])) $this->busqueda = isset($_REQUEST['query']) ? trim($_REQUEST['query']) : null;
+
+			if(isset($_REQUEST['cat'])) $this->cat = strip_tags($_REQUEST['cat'], ENT_QUOTES);
+
+			if(isset($_REQUEST['subcat'])) $this->subcat = strip_tags($_REQUEST['subcat'], ENT_QUOTES);
+
+			if(isset($_REQUEST['orden'])) $this->orden = strip_tags($_REQUEST['orden'], ENT_QUOTES);
+
+
+
+			$sql="SELECT DISTINCT(pd_id), pd_titulo, pd_etiqueta, pd_sku,pd_modelo, pd_descuento, pd_descuento_especial, pd_orden, ct_orden, IF(pd_destacado='si', pd_orden_dest, 2000) AS orden, IF(pd_new='si', pd_orden_new, 2000) AS ordennew , IF(pd_etiqueta='novedad', 0, pd_orden) AS ordennovedad, IF(pd_etiqueta='oferta', pd_orden_oferta, 2000) AS ordenoferta FROM `tbl_productos`
 
 			LEFT JOIN tbl_productos_parent ON tbl_productos.pd_id=tbl_productos_parent.pr_producto
 
@@ -694,11 +701,13 @@ class mainClass {
 
 				if(!strstr($sql,"WHERE")){
 
-					$sql .= " WHERE pd_titulo LIKE :term ";
+					$sql .= " WHERE (pd_titulo LIKE :term1  OR pd_sku LIKE :term2 OR pd_modelo LIKE :term3) ";
+                    
 
 				}else{
 
-					$sql .= " AND pd_titulo LIKE :term ";
+					$sql .= " AND (pd_titulo LIKE :term1 OR pd_sku LIKE :term2 OR pd_modelo LIKE :term3) ";
+                    
 
 				}
 
@@ -795,36 +804,38 @@ class mainClass {
 
 
 
-			}
-
+			}else{
+                $sql.=" ORDER BY pd_orden ASC";
+            }
 
 
 			$sql_paginado=$sql;      
 
 
+           /// exit($sql);
+           
+
 
             $queryPag = $this->conn->prepare($sql_paginado);
 
-            if(!empty($this->cat)){
+           if (strpos($sql_paginado, ':cat') !== false && !empty($this->cat)) {
+                $queryPag->bindValue(':cat', $this->cat);
+            }
 
-				$queryPag->bindParam(':cat', $this->cat);
+            if (strpos($sql_paginado, ':subcat') !== false && !empty($this->subcat)) {
+                $queryPag->bindValue(':subcat', $this->subcat);
+            }
 
-			}
+            if (strpos($sql_paginado, ':term') !== false && !empty($this->busqueda)) {
+                $like = "%" . trim($this->busqueda) . "%";
+                $queryPag->bindValue(':term1', $like);
+                $queryPag->bindValue(':term2', $like);
+                $queryPag->bindValue(':term3', $like);
+            }
 
-			if(!empty($this->subcat)){
 
-				$queryPag->bindParam(':subcat', $this->subcat);
 
-			}
-
-			if(!empty($this->busqueda)){
-
-                $this->busqueda = "%" . $this->busqueda . "%";
-
-                $queryPag->bindParam(':term', $this->busqueda);
-
-			}
-
+         
             $queryPag->execute();
 
             $numrows = $queryPag->rowCount();
@@ -853,30 +864,29 @@ class mainClass {
 
             $query = $this->conn->prepare($sql);
 
-            if(!empty($this->cat)){
+             if (strpos($sql, ':cat') !== false && !empty($this->cat)) {
+                $query->bindValue(':cat', $this->cat);
+            }
 
-				$query->bindParam(':cat', $this->cat);
+            if (strpos($sql, ':subcat') !== false && !empty($this->subcat)) {
+                $query->bindValue(':subcat', $this->subcat);
+            }
 
-			}
-
-			if(!empty($this->subcat)){
-
-				$query->bindParam(':subcat', $this->subcat);
-
-			}
-
-			if(!empty($this->busqueda)){
-
-                $this->busqueda = "%" . $this->busqueda . "%";
-
-                $query->bindParam(':term', $this->busqueda);
-
-			}
+            if (strpos($sql, ':term') !== false && !empty($this->busqueda)) {
+                $like = "%" . trim($this->busqueda) . "%";
+                $query->bindValue(':term1', $like);
+                $query->bindValue(':term2', $like);
+                $query->bindValue(':term3', $like);
+            }
+     
+            
+            
+           
 
             $query->execute();
 
 
-
+              
             if ($query->rowCount()>0) {
 
                 while($reg = $query->fetch())
@@ -886,6 +896,8 @@ class mainClass {
                     $this->arrGridProd['productos'][] = $this->getDatosItemProd($reg, $desc, $cuot);
 
                 }
+
+
 
                 if ($total_pages > 1) {
 

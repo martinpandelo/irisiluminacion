@@ -344,9 +344,9 @@ class mainClass {
 
 			if(!empty($this->busqueda)){
 				if(!strstr($sql,"WHERE")){
-					$sql .= " WHERE pd_titulo LIKE :term ";
+					$sql .= " WHERE (pd_titulo LIKE :term  OR pd_sku LIKE :term OR pd_modelo LIKE :term) ";
 				}else{
-					$sql .= " AND pd_titulo LIKE :term ";
+					$sql .= " AND (pd_titulo LIKE :term OR pd_sku LIKE :term OR pd_modelo LIKE :term) ";
 				}
 			}
 
