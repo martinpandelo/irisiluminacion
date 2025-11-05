@@ -225,10 +225,15 @@ if ($ObjCheckout->CheckOrderConfirmada($order_reference)) {
         }';
 
         $url ="https://api.postmarkapp.com/email/withTemplate";
-        $headers = array(
+       /* $headers = array(
             "Content-Type: application/json",
             "Accept: application/json",
             "X-Postmark-Server-Token: 11c3f3a2-e5c5-4845-ac1a-1ebadc00990a"
+        );*/
+        $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "X-Postmark-Server-Token: ".TOKEN_POSTMARK
         );
 
         $sesion = curl_init($url);
@@ -349,7 +354,7 @@ if ($ObjCheckout->CheckOrderConfirmada($order_reference)) {
                         <strong>Titular:</strong> '.$datos["titular"].'<br>
                         <strong>CUIT:</strong> '.$datos["cuit"].'</p>';
 
-                        echo '<p class="my-4">Una vez hecha la transferencia debes informar tu pago a <a href="mailto:ventas@irisluz.com.ar">ventas@irisluz.com.ar</a>. Cuando tu dinero esté acreditado te informaremos sobre cada estado que se encuentra el pedido.</p>
+                        echo '<p class="my-4">Una vez hecha la transferencia debes informar tu pago a <a href="mailto:ventasweb@irisiluminacion.com.ar">ventasweb@irisiluminacion.com.ar</a>. Cuando tu dinero esté acreditado te informaremos sobre cada estado que se encuentra el pedido.</p>
                         <hr>';
                         
                         } ?>

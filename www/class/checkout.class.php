@@ -1,5 +1,4 @@
 <?php 
-
 class Checkout
 {
 	private $conn;
@@ -337,11 +336,22 @@ class Checkout
 		
 		//Envio de correo por Postmark
         $url ="https://api.postmarkapp.com/email/withTemplate";
-        $headers = array(
+        /*$headers = array(
             "Content-Type: application/json",
             "Accept: application/json",
             "X-Postmark-Server-Token: 11c3f3a2-e5c5-4845-ac1a-1ebadc00990a"
-		);
+		);*/
+/* $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "X-Postmark-Server-Token: 11c3f3a2-e5c5-4845-ac1a-1ebadc00990a"
+        );*/
+        $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "X-Postmark-Server-Token: ".TOKEN_POSTMARK
+        );
+
 		$parametros_post = '{
             "From": "ventasweb@irisiluminacion.com.ar",
             "To": "'.$orderInfo["or_email"].'",

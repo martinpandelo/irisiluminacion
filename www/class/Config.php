@@ -26,4 +26,7 @@ $srvRoot  = str_replace('class/Config.php', '', $thisFile);
 define('WEB_ROOT', $webRoot);
 define('SRV_ROOT', $srvRoot);
 
+
+define('TOKEN_POSTMARK','d5f00be2-45bc-4973-9d8d-38e92051e25f');
+
 ?>

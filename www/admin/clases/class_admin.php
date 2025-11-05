@@ -1,5 +1,5 @@
 <?php 
-
+define('TOKEN_POSTMARK','d5f00be2-45bc-4973-9d8d-38e92051e25f');
 abstract class Conexion
 {
 	public function con()
@@ -1605,10 +1605,20 @@ class Preguntas extends Conexion
 
 		//Envio de correo por Postmark
         $url ="https://api.postmarkapp.com/email/withTemplate";
-        $headers = array(
+        /*$headers = array(
             "Content-Type: application/json",
             "Accept: application/json",
             "X-Postmark-Server-Token: 11c3f3a2-e5c5-4845-ac1a-1ebadc00990a"
+        );*/
+		/* $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "X-Postmark-Server-Token: 11c3f3a2-e5c5-4845-ac1a-1ebadc00990a"
+        );*/
+        $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "X-Postmark-Server-Token: ".TOKEN_POSTMARK
         );
         
 
