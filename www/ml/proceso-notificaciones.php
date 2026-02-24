@@ -63,6 +63,7 @@ $refreshToken = $datosmeli['ml_refresh_token'];
 
   					$marca = '';
 					$modelo= '';
+					$sku = '';
 					$caracteristicas = '';
 
 
@@ -82,6 +83,12 @@ $refreshToken = $datosmeli['ml_refresh_token'];
 								$modelo = $atrib->value_name;
 								
 							}
+
+							if ($atrib->id=='SELLER_SKU') {
+								$sku = $atrib->value_name;
+								
+							}
+
 						}
 					}
 					
@@ -107,7 +114,7 @@ $refreshToken = $datosmeli['ml_refresh_token'];
 					//exit;
 					
   					$codigo = '-';
-					$sku = '';
+					
 					foreach($variat["body"] as $varia){
 
 
@@ -129,7 +136,7 @@ $refreshToken = $datosmeli['ml_refresh_token'];
 									}
 
 									//SKU si no tiene variaciones
-									if ($at->id=='SELLER_SKU') {
+									if ($at->id=='SELLER_SKU' && $at->value_name != '') {
 										$sku = $at->value_name;
 									}
 									

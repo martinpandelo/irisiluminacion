@@ -3,8 +3,9 @@ $menuCompras=true;
 require_once("../class/checkout.class.php");
 require_once('clases/class_admin.php');
 $objAdmin=new LoginAdmin;
-
 $ordenes=new Ordenes;
+$Objproducto = new Productos();
+
 
 
 if (isset($_GET['id_orden']) && (int)$_GET['id_orden'] > 0) {
@@ -193,18 +194,25 @@ $orderInfo = $ObjCheckout->GetOrderInfo($id_orden);
                                                                                     
                                                                                     $total += $precio * $cantidad;
                                                                                     $cant_prod += $cantidad;
+
+                                                                                    $rowProducto = $Objproducto->Traer($pd_id);
+
+                                                                                    $linkProducto = constant('URL').'producto/'.$pd_id.'-'.Varias::crear_url($pd_titulo);
+
                                                                                 ?>
                                                                             
                                                                                         <tr>
                                                                                             <td>
+                                                                                            <a target="_blank" href="<?php echo $linkProducto ?>">
                                                                                                 <img src="<?php echo $pd_thumbnail ?>" width="80px"/>
+                                                                                            </a>
                                                                                             </td>
                                                                                             <td>
                                                                                                 <div class="dat_comp">
 
-                                                                                                    <?php echo '<b>'.$codigo.'</b>' ?><br>
+                                                                                                    <?php echo '<b>MODELO:</b> '.$rowProducto['pd_modelo'] ?><br>
                                                                                                     <?php echo $pd_titulo ?><br>
-                                                                                                    <?php echo 'SKU: '.$sku ?><br>
+                                                                                                    <?php echo '<b>SKU:</b> '.$rowProducto['pd_sku'] ?><br>
                                                                                                     <?php if ($variacion) {
                                                                                                         echo '<b>'.$variacion.'</b>';
                                                                                                     } ?>
